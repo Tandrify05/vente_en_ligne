@@ -7,6 +7,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: auto;
     align-items: center;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -25,7 +26,8 @@ label {
 }
 
 input {
-    width: 50%;
+    width: 100%;
+    max-width: 300px; /* Limit la largeur des champs */
     padding: 8px;
     margin: 0 auto 10px; /* Centrer horizontalement */
     border: 1px solid #ccc;
@@ -34,14 +36,15 @@ input {
 }
 
 button {
-    width: 50%;
+    width: 100%;
+    max-width: 300px; /* Limit la largeur du bouton */
     padding: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
-    margin: 0 auto 10px; 
+    margin: 0 auto 10px;
     display: block;
 }
 
@@ -57,6 +60,28 @@ ul {
 ul li {
     color: red;
 }
-p{
+
+p {
     text-align: center;
+}
+
+/* Media queries pour les petits écrans */
+@media (max-width: 768px) {
+    .container {
+        width: 80%; /* Plus large sur les petits écrans */
+    }
+
+    input, button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Encore plus large sur les très petits écrans */
+    }
+
+    input, button {
+        width: 90%;
+    }
 }
