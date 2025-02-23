@@ -18,7 +18,7 @@ h2 {
 .produit-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-    gap: 20px; /* Espace entre les produits dans les colonnes et les lignes */
+    gap: 30px; /* Augmenter l'espace entre les produits dans les colonnes et les lignes */
     max-width: 1200px;
     margin: 20px auto;
     padding: 10px;
@@ -35,7 +35,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -72,8 +72,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-
-
 /* Bouton de détail */
 .btn-details {
     background-color: #007bff;
@@ -100,5 +98,6 @@ p {
 @media screen and (max-width: 768px) {
     .produit-container {
         grid-template-columns: 1fr; /* Passer à une seule colonne pour les petits écrans */
+        gap: 15px; /* Réduire l'espace entre les produits pour les petits écrans */
     }
 }
