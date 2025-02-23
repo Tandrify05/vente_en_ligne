@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier la commande #{{ commande.id }}</title>
+    <link rel="stylesheet" href="{% static 'css/modifier_list.css' %}">
+</head>
+<body>
+    {% include 'user/menu.html' %}
+
+    <div class="commande-modifier-container">
+        <h2>Modifier la commande #{{ commande.id }}</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="status">Statut de la commande :</label>
+                <select id="status" name="status" class="form-control">
+                    <option value="en_attente" {% if commande.status == 'en_attente' %}selected{% endif %}>En attente</option>
+                    <option value="expediee" {% if commande.status == 'expediee' %}selected{% endif %}>Expédiée</option>
+                    <option value="livree" {% if commande.status == 'livree' %}selected{% endif %}>Livrée</option>
+                    <option value="annulee" {% if commande.status == 'annulee' %}selected{% endif %}>Annulée</option>
+                </select>
+            </div>
+
+            <h3>Produits commandés :</h3>
+            {% for commande_produit in commande.produits.all %}
+                <div class="form-group">
+                    <label for="quantite_{{ commande_produit.id }}">Quantité de {{ commande_produit.produit.nom_produit }} :</label>
+                    <input type="number" id="quantite_{{ commande_produit.id }}" name="quantite_{{ commande_produit.id }}" 
+                           class="form-control" value="{{ commande_produit.quantite }}" min="1">
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+        </form>
+
+        <a href="{% url 'mes_commandes' %}" class="btn btn-secondary mt-3">Retour à mes commandes</a>
+    </div>
+</body>
+</html>

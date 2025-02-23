@@ -1,0 +1,59 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Inclure le menu -->
+    {% include 'user/menu.html' %}
+
+    <h2>Mon Compte</h2>
+
+    <div class="compte-info">
+        <h3>Informations personnelles</h3>
+        <p><strong>Nom :</strong> {{ client.nom_client|default:"Non renseigné" }}</p>
+        <p><strong>Email :</strong> {{ client.email_client|default:"Non renseigné" }}</p>
+        <p><strong>Téléphone :</strong> {{ client.contact|default:"Non renseigné" }}</p>
+        <p><strong>Adresse :</strong> {{ client.adresse|default:"Non renseigné" }}</p>
+
+        <!-- Ajouter un bouton pour modifier les informations du compte -->
+        <a href="{% url 'modifier_compte' %}" class="btn btn-primary">Modifier mon compte</a>
+
+        <!-- Affichage des commandes passées -->
+        <h3>Mes commandes</h3>
+        <ul>
+            {% for commande in client.commande_set.all %}
+                <li>
+                    <p><strong>Commande N°:</strong> {{ commande.id }}</p>
+                    <p><strong>Date :</strong> {{ commande.date_commande }}</p>
+                    <p><strong>Statut :</strong> {{ commande.status }}</p>
+                    <p><strong>Total :</strong> {{ commande.prix_total }} EUR</p>
+
+                    <!-- Liste des produits dans la commande -->
+                    <h4>Produits commandés :</h4>
+                    <ul>
+                        {% for item in commande.produits.all %}
+                            <li>
+                                <p><strong>Produit :</strong> {{ item.produit.nom_produit }}</p>
+                                <p><strong>Quantité :</strong> {{ item.quantite }}</p>
+                                <p><strong>Prix unitaire :</strong> {{ item.produit.prix }} EUR</p>
+                                <p><strong>Total :</strong> {{ item.produit.prix|multiply:item.quantite|floatformat:2 }} EUR</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% empty %}
+                <p>Aucune commande passée pour le moment.</p>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>

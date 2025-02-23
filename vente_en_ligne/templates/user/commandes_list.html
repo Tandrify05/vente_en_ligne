@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes commandes</title>
+    <link rel="stylesheet" href="{% static 'css/commande_list.css' %}">
+</head>
+<body>
+    {% include 'user/menu.html' %}
+    
+    <div class="commande-list-container">
+        <h2>Mes commandes</h2>
+        
+        {% if commandes %}
+            <div class="commande-list">
+                {% for commande in commandes %}
+                    <div class="commande-item">
+                        <p class="commande-header">Commande #{{ commande.id }} - <span class="status">{{ commande.status }}</span> - <strong>{{ commande.prix_total }} EUR</strong></p>
+                        <h3>Produits commandés :</h3>
+                        <ul class="produit-list">
+                            {% for commande_produit in commande.produits.all %}
+                                <li class="produit-item">
+                                    <p><strong>{{ commande_produit.produit.nom_produit }}</strong></p>
+                                    <p>{{ commande_produit.produit.description }}</p>
+                                    <p>Quantité : {{ commande_produit.quantite }}</p>
+                                    <p>Prix unitaire : {{ commande_produit.produit.prix }} EUR</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="commande-actions">
+                            <a href="{% url 'modifier_commande' commande.id %}" class="btn btn-modifier">Modifier</a>
+                            <form action="{% url 'supprimer_commande' commande.id %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-supprimer">Supprimer</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucune commande passée pour le moment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

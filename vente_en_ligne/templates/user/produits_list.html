@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/produits_list.css' %}">
+    <title>Liste des Produits</title>
+</head>
+<body>
+    {% include 'user/menu.html' %}
+    <h2>Liste des produits</h2>
+
+    <div class="produit-container">
+        {% for produit in produits %}
+        <div class="produit">
+            <h3>{{ produit.nom_produit }}</h3>
+            <p>{{ produit.prix }} EUR</p>
+            <img src="{{ produit.image_produit.url }}" alt="{{ produit.nom_produit }}" />
+            <a href="{% url 'details_produit' produit.id %}" class="btn-details">Voir Détail</a>
+        </div>
+        {% empty %}
+        <p>Aucun produit disponible.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

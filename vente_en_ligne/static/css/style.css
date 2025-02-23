@@ -1,0 +1,85 @@
+
+/* Container principal */
+.compte-info {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(238, 174, 202, 0.251);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres */
+h2, h3 {
+    color: #4CAF50;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+/* Style des informations personnelles */
+.compte-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.compte-info p strong {
+    color: #4CAF50;
+}
+
+/* Liste des commandes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li p {
+    margin: 5px 0;
+}
+
+ul li p strong {
+    color: #333;
+}
+
+/* Style des liens */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Messages d'erreur ou autres */
+ul li.error {
+    color: red;
+    font-weight: bold;
+}
+
+ul li.success {
+    color: green;
+    font-weight: bold;
+}
+
+/* Pour les éléments vides, afficher un message central */
+ul.empty {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    color: #777;
+}

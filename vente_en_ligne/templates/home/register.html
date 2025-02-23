@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/form.jpg' %}");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;  /* Centre horizontalement */
+            align-items: center; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inscription</h2>
+
+        <!-- Affichage des messages -->
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Affichage des erreurs de formulaire -->
+        {% if form.errors %}
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li><strong>{{ field }}:</strong>
+                        <ul>
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Formulaire d'inscription -->
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div>
+                <label for="{{ form.username.id_for_label }}">Nom d'utilisateur</label>
+                {{ form.username }}
+            </div>
+            
+            <div>
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div>
+                <label for="{{ form.password1.id_for_label }}">Mot de passe</label>
+                {{ form.password1 }}
+            </div>
+
+            <div>
+                <label for="{{ form.password2.id_for_label }}">Confirmer le mot de passe</label>
+                {{ form.password2 }}
+            </div>
+
+            <div>
+                <label for="{{ form.contact.id_for_label }}">Numéro de téléphone</label>
+                {{ form.contact }}
+            </div>
+
+            <div>
+                <label for="{{ form.adresse.id_for_label }}">Adresse</label>
+                {{ form.adresse }}
+            </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a href="{% url 'login' %}">Connectez-vous ici</a>.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #ffffff2f;
+    padding: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+/* Style des liens du menu */
+.menu a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none; /* Enlever le soulignement */
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #9808ffb8;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Effet au survol des liens */
+.menu a:hover {
+    background-color: #a200fa46;  /* Couleur de fond au survol */
+    transform: scale(1.1);       /* Légère agrandissement du bouton */
+}
+
+/* Option active du menu */
+.menu a.active {
+    background-color: #3e8e41;  /* Couleur de fond pour le lien actif */
+    font-weight: bold;
+}
+
+/* Responsivité pour mobile */
+@media screen and (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+}
+h2{
+    text-align: center;
+    color: #9808ffb8;
+}

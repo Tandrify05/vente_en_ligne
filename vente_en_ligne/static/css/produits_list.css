@@ -1,0 +1,104 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Conteneur des produits */
+.produit-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
+    gap: 20px; /* Espace entre les produits dans les colonnes et les lignes */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    justify-items: center; /* Centre les produits horizontalement */
+    grid-auto-rows: minmax(250px, auto); /* Assure un minimum de hauteur pour chaque ligne */
+    width: 90%; /* Limite la largeur du conteneur pour qu'il ne soit pas trop large */
+}
+
+/* Carte produit */
+.produit {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%; /* Réduit la largeur des produits pour mieux tenir dans la grille */
+    margin: 0 0 20px 0; /* Marge en bas pour espacer les produits dans une colonne */
+}
+
+/* Effet au survol d'un produit */
+.produit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre produit */
+.produit h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Prix du produit */
+.produit p {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Image du produit */
+.produit img {
+    width: 100%; /* L'image prend toute la largeur du conteneur */
+    height: 250px; /* Fixe la hauteur à une taille plus raisonnable */
+    object-fit: contain; /* L'image couvre tout l'espace sans se déformer */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+
+/* Bouton de détail */
+.btn-details {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-details:hover {
+    background-color: #0056b3;
+}
+
+/* Message quand il n'y a pas de produits */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
+
+/* Mise en page responsive */
+@media screen and (max-width: 768px) {
+    .produit-container {
+        grid-template-columns: 1fr; /* Passer à une seule colonne pour les petits écrans */
+    }
+}

@@ -1,0 +1,98 @@
+/* Conteneur principal des commandes */
+.commande-list-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Style de chaque commande dans la liste */
+.commande-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.commande-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.commande-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-style: italic;
+    color: #007bff;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+/* Liste des produits dans la commande */
+.produit-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.produit-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.produit-item p {
+    margin: 5px 0;
+}
+
+/* Actions : Modifier et Supprimer */
+.commande-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-modifier {
+    background-color: #28a745;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-modifier:hover {
+    background-color: #218838;
+}
+
+.btn-supprimer {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-supprimer:hover {
+    background-color: #c82333;
+}
+
+form {
+    display: inline;
+}
+
+/* Si aucune commande, afficher le message centré */
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}

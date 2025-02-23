@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/accueil.css' %}">
+    <title>Accueil</title>
+</head>
+<body>
+    <style>
+        body{
+            background-image: url("{% static 'images/home_fond.jpg' %}");
+            background-size: cover; /* L'image couvre toute la page */
+            background-position: center center; /* L'image sera centrée */
+            background-repeat: no-repeat; /* Ne pas répéter l'image */
+            min-height: 100vh; /* Pour que l'image couvre toute la hauteur de la fenêtre */
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <h2>Bienvenue sur notre site de vente en ligne</h2>
+    <nav>
+        <a href="{% url 'register' %}">S'inscrire</a> |
+        <a href="{% url 'login' %}">Se connecter</a> |
+    </nav>
+</body>
+</html>

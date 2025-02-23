@@ -1,0 +1,128 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, h4 {
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(238, 174, 202, 0.251);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a.btn-secondary {
+    color: #007BFF;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+a.btn-secondary:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Style pour les champs de mot de passe */
+#password_fields {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 15px;
+    display: none;
+}
+
+#password_fields .form-group {
+    margin-bottom: 15px;
+}
+
+#password_fields input {
+    border: 1px solid #ddd;
+}
+
+#password_fields input:focus {
+    border-color: #007BFF;
+}
+
+#password_fields label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-check {
+    margin-top: 15px;
+}
+
+/* Checkbox pour modifier le mot de passe */
+.form-check input[type="checkbox"] {
+    margin-right: 10px;
+}
+/* Ajoutez ce code dans votre fichier modifier_compte.css */
+
+.form-buttons {
+    margin-top: 20px; /* Espacement entre les champs du formulaire et les boutons */
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    justify-content: flex-start; /* Aligner les boutons à gauche */
+}
+
+.form-buttons .btn {
+    width: auto;
+    padding: 10px 20px; /* Ajuster la taille des boutons */
+}

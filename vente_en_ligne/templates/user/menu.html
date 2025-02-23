@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="{% static 'css/menu_style.css' %}">
+</head>
+<body>
+    <style>
+        body{
+            background-image: url("{% static 'images/fond.jpg' %}");
+            background-size: cover; /* L'image couvre toute la page */
+            background-position: center center; /* L'image sera centrée */
+            background-repeat: no-repeat; /* Ne pas répéter l'image */
+            min-height: 100vh; /* Pour que l'image couvre toute la hauteur de la fenêtre */
+            font-family: Arial, sans-serif;
+        }
+    </style>
+{% block content %}
+    <h2>Bienvenue, {{ user.username }} !</h2>
+
+    <ul class="menu">
+        <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+        <li><a href="{% url 'produits' %}">Voir la liste des produits</a></li>
+        <li><a href="{% url 'mes_commandes' %}">Voir mes commandes</a></li>
+        <li><a href="{% url 'mon_compte' %}">Infos sur mon compte</a></li>
+    </ul>
+{% endblock %}
+
+</body>
+</html>

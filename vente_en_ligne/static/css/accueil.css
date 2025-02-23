@@ -1,0 +1,63 @@
+/* Styles généraux */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Alignement des éléments en colonne */
+    justify-content: center; /* Centrer le contenu verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
+    height: 100vh; /* Utiliser toute la hauteur de la fenêtre */
+    text-align: center; /* Centrer le texte */
+}
+
+/* En-tête de la page */
+h2 {
+    font-size: 48px; /* Taille plus grande */
+    color: #35699d;
+    margin-top: 0; /* Retirer la marge top */
+    margin-bottom: 30px; /* Ajouter de l'espace sous le titre */
+    font-weight: bold;
+}
+
+/* Navigation */
+nav {
+    text-align: center;
+    margin-top: 30px; /* Espacement supplémentaire en haut */
+}
+
+nav a {
+    color: #007bff;
+    font-size: 24px; /* Taille des liens */
+    text-decoration: none;
+    margin: 0 20px; /* Espacement entre les liens */
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 50px auto; /* Espacement au dessus */
+    padding: 0 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 36px; /* Taille du titre sur petits écrans */
+    }
+
+    nav a {
+        font-size: 20px; /* Taille des liens sur petits écrans */
+    }
+
+    nav {
+        margin-top: 20px;
+    }
+}

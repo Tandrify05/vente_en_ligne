@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du produit</title>
+    <link rel="stylesheet" href="{% static 'css/produits_style.css' %}">
+</head>
+<body>
+
+    {% include 'user/menu.html' %}
+
+    <h2>Détails du produit</h2>
+
+    <div class="produit-details">
+        <h3>{{ produit.nom_produit }}</h3>
+        
+        <!-- Affichage de l'image du produit -->
+        <img src="{{ produit.image_produit.url }}" alt="{{ produit.nom_produit }}" class="image-produit">
+
+        <!-- Description, prix et catégorie -->
+        <p><strong>Description :</strong> {{ produit.description }}</p>
+        <p><strong>Prix :</strong> {{ produit.prix }} EUR</p>
+        <p><strong>Catégorie :</strong> {{ produit.categorie }}</p>
+
+        <!-- Bouton pour commander -->
+        <button id="commanderBtn" class="btn-commander">Commander</button>
+
+        <!-- Modal pour choisir la quantité -->
+        <div id="commandeModal" class="modal">
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <h3>Combien de {{ produit.nom_produit }} voulez-vous commander ?</h3>
+                
+                <!-- Input de quantité -->
+                <label for="quantite">Quantité :</label>
+                <input type="number" id="quantite" name="quantite" min="1" value="1" class="quantite-input">
+                
+                <button id="validerCommande" class="btn-valider">Valider la commande</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Afficher le modal lorsqu'on clique sur le bouton "Commander"
+        document.getElementById('commanderBtn').onclick = function() {
+            document.getElementById('commandeModal').classList.add('show');
+        };
+
+        // Fermer le modal lorsqu'on clique sur le bouton "X"
+        document.getElementById('closeBtn').onclick = function() {
+            document.getElementById('commandeModal').classList.remove('show');
+        };
+
+        // Valider la commande
+        document.getElementById('validerCommande').onclick = function() {
+            var quantite = document.getElementById('quantite').value;
+            var produitId = "{{ produit.id }}";
+    
+            fetch("{% url 'commander_produit' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: JSON.stringify({
+                    produit_id: produitId,
+                    quantite: quantite
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Commande réussie !");
+                    document.getElementById('commandeModal').style.display = 'none';
+                } else {
+                    alert("Erreur : " + data.message);
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite.");
+                console.error("Erreur :", error);
+            });
+        };
+    </script>
+
+</body>
+</html>
